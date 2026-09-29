@@ -4,8 +4,6 @@ extrato = ""
 numero_saques = 0
 LIMITE_SAQUES = 3
 
-opcao = input("Escolha uma opção: ").lower()
-
 def depositar():
     global saldo, extrato
 
@@ -30,13 +28,13 @@ def sacar():
     excedeu_saques = numero_saques >= LIMITE_SAQUES
 
     if excedeu_saldo:
-        label_valor.config(text="Saldo insuficiente!")
+        label_resultado.config(text="Saldo insuficiente!")
 
     elif excedeu_limite:
-        label_valor.config(text="Saque excede o limite de R$ 500!")
+        label_resultado.config(text="Saque excede o limite de R$ 500!")
 
     elif excedeu_saques:
-        label_valor.config(text="Limite de 3 saques atingido!")
+        label_resultado.config(text="Limite de 3 saques atingido!")
 
     elif valor > 0:
         saldo -= valor
@@ -44,10 +42,10 @@ def sacar():
         numero_saques += 1
 
         print("O saque foi feito!")
-        label_valor.config(text="Saque realizado com sucesso!")
+        label_resultado.config(text="Saque realizado com sucesso!")
 
     else:
-        label_valor.config(text="Valor inválido!")
+        label_resultado.config(text="Valor inválido!")
 
 
 def mostrar_extrato():
