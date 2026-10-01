@@ -1,0 +1,18 @@
+{
+    "20260001": {
+        "nome": "nome",
+        "sexo": "masculino",
+        "endereco": "rua ibiapina",
+        "cidade": "sobral",
+        "uf": "CE",
+        "pai": "francisco",
+        "mae": "carmem",
+        "fone": "8899762387",
+        "cep": "62015020",
+        "rg": "90954390900",
+        "cpf": "909.543.909-00",
+        "data_nascimento": "01/01/2010",
+        "matricula": "20260001",
+        "senha": "A499278"
+    }
+}
