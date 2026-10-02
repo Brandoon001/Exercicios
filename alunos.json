@@ -14,5 +14,37 @@
         "data_nascimento": "01/01/2010",
         "matricula": "20260001",
         "senha": "A499278"
+    },
+    "20260002": {
+        "nome": "brandoon",
+        "sexo": "masculino",
+        "endereco": "talita rua",
+        "cidade": "sobral",
+        "uf": "CE",
+        "pai": "francisco",
+        "mae": "mãe",
+        "fone": "99999999",
+        "cep": "62015020",
+        "rg": "9999999",
+        "cpf": "00000000",
+        "data_nascimento": "14042002",
+        "matricula": "20260002",
+        "senha": "A984804"
+    },
+    "20260003": {
+        "nome": "seu barnabe",
+        "sexo": "Masculino",
+        "endereco": "rua de deus",
+        "cidade": "sobral",
+        "uf": "CE",
+        "pai": "francisco",
+        "mae": "maria",
+        "fone": "88 9 9999-9999",
+        "cep": "62015020",
+        "rg": "000.000.000-55",
+        "cpf": "000.000.000-55",
+        "data_nascimento": "01/01/2001",
+        "matricula": "20260003",
+        "senha": "A188244"
     }
 }
