@@ -1,93 +1,76 @@
-import tkinter
-import tkinter.messagebox
+import tkinter as tk
+import tkinter.messagebox as messagebox
+from pathlib import Path
 
 alunos = {}
 
-def listar_alunos():
-  print("Alunos cadastrados:")
-  for nome, (matricula, idade, sexo, cep, endereco, cidade, uf, mae, pai, fone, cpf, rg, data_nascimento) in alunos.items():
-    print(f"Nome: {nome}, Idade: {idade}, Sexo: {sexo}")
-  
+def cadastrar_aluno():
+    nome = entrada_nome.get()
+    sexo = entrada_sexo.get()
+    endereco = entrada_endereco.get()
+    data_nascimento = entrada_data_nascimento.get()
+    rg = entrada_rg.get()
 
-def buscar_aluno():
-  nome = input("Digite o nome do aluno que deseja buscar: ")
-  if nome in alunos:
-    matricula, idade, sexo, cep, endereco, cidade, uf, mae, pai, fone, cpf, rg, data_nascimento = alunos[nome]
-    print(f"Aluno encontrado! Nome: {nome}, Idade: {idade}, Sexo: {sexo}")
-  else:
-    print("Aluno não encontrado.")
+    if cadastrado(rg):
+            messagebox.showerror("Erro", "Aluno já cadastrado.")
 
-match input("Escolha uma opção:\n1 - Cadastrar Aluno\n2 - Listar Alunos\n3 - Buscar Aluno\n4 - Sair\n"):
-  case "1":
-    cadastrar_aluno()
-  case "2":
-    listar_alunos()
-  case "3":
-    buscar_aluno()
-  case "4":
-    print("Saindo...")
-    break
-  case _:
-    print("Opção inválida.")
+    aluno = {
+          "nome": nome,
+          "sexo": sexo,
+          "endereco": endereco,
+          "data_nascimento": data_nascimento,
+          "rg": rg
+      }
 
-janela = tkinter.Tk()
-janela.title("Sistema de Alunos")
+    alunos[rg] = aluno
+    messagebox.showinfo("Sucesso", "Aluno cadastrado com sucesso!")
 
-entrada_nome = tkinter.Entry(janela)
-entrada_nome.pack()
+def cadastrado(rg):
+    """Verifica se o aluno já está cadastrado com base no RG.
 
-label_nome = tkinter.Label(janela, text="Nome do Aluno")
-label_nome.pack()
+    Args:
+        rg (str): RG do aluno.
 
-label_idade = tkinter.Label(janela, text="Idade do Aluno")
-label_idade.pack()
+    Returns:
+        bool: True se o aluno já estiver cadastrado, False caso contrário.
+    """
+    return rg in alunos
+    
+    limpar_campos()
 
-label_sexo = tkinter.Label(janela, text="Sexo do Aluno")
-label_sexo.pack()
+def limpar_campos():
+    entrada_nome.delete(0, tk.END)
+    entrada_sexo.delete(0, tk.END)
+    entrada_endereco.delete(0, tk.END)
+    entrada_data_nascimento.delete(0, tk.END)
+    entrada_rg.delete(0, tk.END)
 
-label_cep = tkinter.Label(janela, text="CEP do Aluno")
-label_cep.pack()
+def sair():
+    respota = messagebox.askyesno("Sair", "Deseja realmente sair?")
 
-label_endereco = tkinter.Label(janela, text="Endereço do Aluno")
-label_endereco.pack()
+    if respota:
+        janela.destroy()
+def menu(opcao):
+    match opcao:
+        case "1":
+            cadastrar_aluno()
 
-label_cidade = tkinter.Label(janela, text="Cidade do Aluno")
-label_cidade.pack()
+        case "2":
+            mostrar_alunos()
 
-label_uf = tkinter.Label(janela, text="UF do Aluno")
-label_uf.pack()
+        case "3":
+            sair()
 
-label_mae = tkinter.Label(janela, text="Nome da Mãe do Aluno")
-label_mae.pack()
+        case _:
+            messagebox.showwarning(
+                "Opção inválida",
+                "Escolha uma opção válida."
+            )
 
-label_pai = tkinter.Label(janela, text="Nome do Pai do Aluno")
-label_pai.pack()
+janela = tk.Tk()
+janela.title("Cadastro de Alunos")
+janela.geometry("500x550")
+janela.resizable(False, False)
 
-label_fone = tkinter.Label(janela, text="Telefone do Aluno")
-label_fone.pack()
-
-label_cpf = tkinter.Label(janela, text="CPF do Aluno")
-label_cpf.pack()
-
-label_rg = tkinter.Label(janela, text="RG do Aluno")
-label_rg.pack()
-
-label_data_nascimento = tkinter.Label(janela, text="Data de Nascimento do Aluno")
-label_data_nascimento.pack()
-
-label_matricula = tkinter.Label(janela, text="Matrícula do Aluno")
-label_matricula.pack()
-
-botao_cadastrar = tkinter.Button(janela, text="Cadastrar Aluno", command=cadastrar_aluno)
-botao_cadastrar.pack()
-
-botao_listar = tkinter.Button(janela, text="Listar Alunos", command=listar_alunos)
-botao_listar.pack()
-
-botao_buscar = tkinter.Button(janela, text="Buscar Aluno", command=buscar_aluno)
-botao_buscar.pack()
-
-botao_sair = tkinter.Button(janela, text="Sair", command=janela.quit)
-botao_sair.pack()
 
 janela.mainloop()
