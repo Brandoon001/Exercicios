@@ -1,0 +1,3 @@
+bombom: R$ 0.50
+banana: R$ 4.00
+arroz: R$ 5.00
