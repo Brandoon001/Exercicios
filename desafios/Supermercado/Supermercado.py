@@ -17,7 +17,7 @@ def salvar_lista(itens):
 def carregar_lista():
     itens_carregados = {}
     try:
-        with abrir('lista_de_compras.txt') as lista_compras:
+        with abrir(pasta_atual / 'lista_de_compras.txt') as lista_compras:
             for linha in lista_compras:
                 item, valor = linha.strip().split(': R$ ')
                 itens_carregados[item] = float(valor)
