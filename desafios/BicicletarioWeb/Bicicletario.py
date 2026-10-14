@@ -35,11 +35,16 @@ class Bicicleta:
         self.vendida = True
         return True
 
+    lista_de_acoes = {""}
+    
+    def testando(self):
+        return('Testando a biclicaleta: "pedalando", "usando o freio"')
+
     def buzinar(self):
         return "Trim Trim!"
 
     def estado(self):
-        return "Pedalando!"
+        return ""
 
     def __str__(self):
         return (
@@ -348,8 +353,8 @@ def detalhes(indice):
         <p><strong>Ano:</strong> {b.ano}</p>
         <p><strong>Valor:</strong> R$ {b.valor:.2f}</p>
         <p><strong>Status:</strong> {status}</p>
-        <p><strong>Buzina:</strong> {b.buzinar()}</p>
         <p><strong>Estado:</strong> {b.estado()}</p>
+        <p><strong>Buzina:</strong> {b.testando()}</p>
         <a class="botao secundario" href="/bicicletas">Voltar ao estoque</a>
     </section>"""
 
