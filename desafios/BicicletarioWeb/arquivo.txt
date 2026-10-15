@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 1;branco;bmx;2008;1499.90;VENDIDA
+=======
+1;Vermelha;BMX;2025;2500.99;VENDIDA;Nova
+2;dede;deded;2024;8585.00;VENDIDA;Seminova
+>>>>>>> bda57e748bddeffbbdda3523628a5d264b10f473
