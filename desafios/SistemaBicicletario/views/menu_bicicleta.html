@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <!-- card.tpl -->
+<style>
+    .meu-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 350px;
+        margin: 20px auto; /* Centraliza o card na tela */
+        text-align: center;
+        font-family: sans-serif;
+    }
+
+    /* Container flexbox para alinhar e centralizar os botões */
+    .container-botoes {
+        display: flex;
+        flex-direction: column; /* Botões um embaixo do outro. Use 'row' se quiser lado a lado */
+        gap: 12px;             /* Espaçamento perfeito entre os botões */
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bicicletário</title>
+</head>
+<body>
+    <div class="meu-card">
+    <h3 style="margin: 0 0 10px 0; color: #212529;">Web App Bicicletário</h3>
+    <p style="color: #6c757d; font-size: 14px; margin: 0;">App de Cadastro de bicicletas para vendas do bicicletário</p>
+    
+    <!-- Espaço onde os botões serão centralizados -->
+        <div class="container-botoes">
+            <h3 style="margin: 0 0 10px 0; color: #212529;">Escolha uma opção</h3>
+            % include('botao', texto_botao='Adicionar bicicleta' , url_rota='/cadastro')
+
+            % include('botao', texto_botao='Mostrar informações da bicicleta' , url_rota='/mostrar')
+
+            % include('botao', texto_botao='Ações da bicicleta' , url_rota='/acoes')
+
+            % include('botao', texto_botao='Voltar' , url_rota='/')
+    </div>
+    </div>
+</body>
+</body>
+</html>
